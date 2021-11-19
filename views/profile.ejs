@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTalents - <%=firstname%></title>
+    <link rel="stylesheet" type="text/css" href="profile.css">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div id="me">
+                <img src="https://avatars.githubusercontent.com/<%=username%>" alt="Nome">
+                <div id="presentation">
+                    <h1><%=firstname%></h1><br>
+                    <h1><strong><%=lastname%>,</strong> <mark class="light">22</mark></h1>
+                    <h5>Junior Fullstack Developer</h5>
+                </div>
+            </div>
+            <div id="interline"></div>
+            <div id="contactinfo">
+                <h5><img src="images/global/mail.png" alt="e-mail"><%=email%></h5>
+                <h5><img src="images/global/local.png" alt="residencia">Caraúbas, Rio Grande do Norte</h5>
+                <h5><a href="">Github</a> • <a href="#">LinkedIn</a></h5>
+            </div>
+        </header>
+       <div id="maininfo">
+        <div class="cv-parts">
+            <h2>Apresentação</h2>
+            <p><%=presentation%></p>
+            <hr>
+        </div>
+        <div class="cv-parts">
+            <h2>Expêriencias</h2>
+            <h3>Universidade do Estado do Rio Grande do Norte • <mark class="light">Cursando</mark></h3>
+            <p>Contabilidade</p>
+            <br>
+            <h3>Empresa 1 • <mark class="light">Atualmente</mark></h3>
+            <p>Cargo de Pleno</p>
+
+            <h3>Empresa 2 • <mark class="light">2 anos</mark></h3>
+            <p>Cargo de Junior</p>
+            <hr>
+        </div>
+       </div>
+    </div>
+</body>
+</html>

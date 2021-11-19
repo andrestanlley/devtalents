@@ -1,0 +1,22 @@
+<div class="SendData">
+    <form action="/signup/register" method="post">
+        <input type="text" placeholder="@usuario" name="user" id="user">
+        <input type="text" placeholder="Seu nome" name="name" id="name">
+        <input type="text" placeholder="seu sobrenome" name="sobrenome" id="lastname">
+        <input type="text" placeholder="seu email" name="email" id="email">
+        <textarea id="presentation" name="apresentacao">
+        </textarea>
+        <input type="submit" value="Próximo" id="finalizar">
+    </form>
+    <script src="../signup/script.js"></script>
+</div>    
+<script>
+    onload = ()=>{
+        user.value = localStorage.getItem('user')
+        firstname.value = localStorage.getItem('name')
+        lastname.value = localStorage.getItem('lastname')
+        email.value = localStorage.getItem('email')
+        presentation.value = localStorage.getItem('presentation')
+        document.getElementById('finalizar').submit()
+    }
+</script>

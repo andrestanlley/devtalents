@@ -1,0 +1,47 @@
+#signup{
+    border-radius: 6px 0px 0px 6px;
+    width: 35%;
+}
+
+textarea{
+    width: 17rem;
+    height: 13rem;
+    padding: .3rem;
+}
+
+main{
+    background: white;
+}
+
+#welcome{
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.areas{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+
+.subclass{
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=radio],input[type=checkbox]{
+    height: 1rem;
+    width: auto;
+    margin-bottom: auto;
+}
+
+label{
+    font-size: 1rem;
+    margin-right: .7rem;
+    margin-left: .3rem;
+}
+
+#hidden{
+    display: none;
+}
+

@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/su1.css">
+<link rel="stylesheet" href="/presentation.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<h5 id="error"><%=error%></h5>
+<img src="#" id="photo">
+<p><strong id="nm">Usuario</strong>, Fale um pouco sobre você!</p>
+<form id="ProfileLink" method="POST">
+<textarea id="presentation" name="apresentacao">
+</textarea>
+<p id="CaracterLimiter"></p>
+<input value="Próximo" id="next">
+</form>
+<script src="/signup/script.js"></script>
+<script>
+    let TextLimit = 300
+    
+    document.getElementById('ProfileLink')
+
+    onload = ()=>{
+    photo.setAttribute('src', `https://avatars.githubusercontent.com/${localStorage.getItem('user')}`)
+    showname.innerText = localStorage.getItem('name')
+    CaracterLimiter.innerText = `0/${TextLimit}`
+}
+    presentation.addEventListener("keyup", ()=>{
+        CaracterLimiter.innerText = presentation.value.length+'/'+`${TextLimit}`
+        if(presentation.value.length > TextLimit || presentation.value.length <= 4){
+            presentation.value = presentation.value.slice(0, TextLimit)
+            CaracterLimiter.style.color = 'red'
+            BNext.block()
+        }else{
+            CaracterLimiter.style.color = 'grey'
+            BNext.allow()
+        }
+    })
+
+    next.addEventListener("click", async ()=>{
+        localStorage.setItem('presentation', presentation.value)
+        console.log('Inicio')
+        let data = {
+            username: localStorage.getItem('user'),
+            firstname: localStorage.getItem('name'),
+            lastname: localStorage.getItem('lastname'),
+            email: localStorage.getItem('email'),
+            presentation: localStorage.getItem('presentation')
+        }
+
+        const response = await axios.post('/signup/register', data)
+
+        if(response.status == 201){
+            ProfileLink.setAttribute('action', `/${localStorage.getItem('user')}`)
+            ProfileLink.submit()
+        }else{
+            alert('Erro ao realizar cadastro.')
+        }
+    })
+
+        
+</script>

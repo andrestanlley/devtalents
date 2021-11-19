@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/su1.css">
+<h5 id="error"><%=error%></h5>
+<img src="https://www.icmetl.org/wp-content/uploads/2020/11/user-icon-human-person-sign-vector-10206693.png" alt="Sua foto lindona vai estar aqui!" id="photo">
+<p>Qual seu usuario do github?</p>
+<form action="/signup/new" method="POST">
+<input type="text" placeholder="@usuario" name="user" id="user"><br>
+<input type="submit" value="Próximo" id="next">
+</form>
+<script src="/signup/script.js"></script>
+<script>
+
+    let username
+
+    user.addEventListener("keyup", ()=>{
+    user.value[0] == '@'?username=user.value.replace('@',''):username=user.value
+    const ModifyPhoto = ()=>{
+        clearTimeout(TimeRequest)
+        username == ''?photo.setAttribute('src', defaultphoto):photo.setAttribute('src', `https://avatars.githubusercontent.com/${username}`
+        )}
+    const TimeRequest = setTimeout(ModifyPhoto, 3000)
+    user.value != ''?BNext.allow():BNext.block()
+    user.value = LabelCorretor(user.value)
+    user.value = user.value.replaceAll(user.value, user.value.toLowerCase())
+})
+
+    
+
+
+next.addEventListener("click", ()=>{
+    localStorage.setItem('user', username)
+})
+</script>

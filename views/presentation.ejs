@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTalents - Cadastro</title>
+    <link rel="stylesheet" href="/inicio.css">
+    <link rel="stylesheet" href="/presentation.css">
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div id="signup">
+            <%- include(`./parts/${part}`) %>
+        </div>
+        <div id="welcome">
+            <div class="subclass">
+                <h2>Qual área você mais se identifica?</h2>
+                <div class="areas">
+                    <input type="radio" id="FE" name="Front-end" value="Front-end"
+                            checked>
+                    <label for="FE">Front-end</label>
+
+                    <input type="radio" id="BE" name="Back-end" value="Back-end">
+                    <label for="BE">Back-end</label>
+        
+                    <input type="radio" id="FS" name="Full Stack" value="Full Stack">
+                    <label for="FS">Full Stack</label>
+
+                    <input type="radio" id="SC" name="Segurança" value="Segurança">
+                    <label for="SC">Segurança</label>
+
+                    <input type="radio" id="IF" name="Arquitetura" value="Infraestrutura">
+                    <label for="AQ">Infraestrutura</label>
+            </div>
+            <div class="FE" id="hidden">
+
+                <p>Choose your monster's features:</p>
+
+                <div>
+                <input type="checkbox" id="scales" name="scales"
+                        checked>
+                <label for="scales">Scales</label>
+                </div>
+
+                <div>
+                <input type="checkbox" id="horns" name="horns">
+                <label for="horns">Horns</label>
+                </div>
+
+            </div>
+
+            <div class="BE" id="hidden">
+
+                <p>Choose your monster's features:</p>
+
+                <div>
+                <input type="checkbox" id="scales" name="scales"
+                        checked>
+                <label for="scales">Scales</label>
+                </div>
+
+                <div>
+                <input type="checkbox" id="horns" name="horns">
+                <label for="horns">Horns</label>
+                </div>
+
+            </div>
+
+            <div class="FS" id="hidden">
+
+                <p>Choose your monster's features:</p>
+
+                <div>
+                <input type="checkbox" id="scales" name="scales"
+                        checked>
+                <label for="scales">Scales</label>
+                </div>
+
+                <div>
+                <input type="checkbox" id="horns" name="horns">
+                <label for="horns">Horns</label>
+                </div>
+
+            </div>
+
+            <div class="SC" id="hidden">
+
+                <p>Choose your monster's features:</p>
+
+                <div>
+                <input type="checkbox" id="scales" name="scales"
+                        checked>
+                <label for="scales">Scales</label>
+                </div>
+
+                <div>
+                <input type="checkbox" id="horns" name="horns">
+                <label for="horns">Horns</label>
+                </div>
+
+            </div>
+
+            <div class="iF" id="hidden">
+
+                <p>Choose your monster's features:</p>
+
+                <div>
+                <input type="checkbox" id="scales" name="scales"
+                        checked>
+                <label for="scales">Scales</label>
+                </div>
+
+                <div>
+                <input type="checkbox" id="horns" name="horns">
+                <label for="horns">Horns</label>
+                </div>
+
+            </div>
+
+            </div>
+            <footer>
+                <a href="#">Sobre nós</a> • <a href="#">Politica de privacidade</a>
+            </footer>
+        </div>
+    </main>
+</body>
+<script>
+
+let frontend = document.getElementById('FE')
+
+let Stacks = () => {
+    console.log(this.id)
+}
+
+function Stacks2(){
+    this.checked=true?this.checked=false:this.checked=true
+}
+
+    frontend.addEventListener("click", Stacks2)
+</script>
+</html>

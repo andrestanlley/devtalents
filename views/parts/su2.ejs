@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/su1.css">
+<h5 id="error"><%=error%></h5>
+<img src="#" id="photo">
+<p>Qual o seu nome?</p>
+<form action="/signup/presentation" method="POST">
+<input type="text" placeholder="Seu nome" name="nome" id="name">
+<input type="text" placeholder="seu sobrenome" name="sobrenome" id="lastname">
+<input type="text" placeholder="seu email" name="email" id="email"><br>
+<input type="submit" value="Próximo" id="next">
+</form>
+<script src="/signup/script.js"></script>
+<script>
+    onload = ()=>{
+    photo.setAttribute('src', `https://avatars.githubusercontent.com/${localStorage.getItem('user')}`)
+}
+
+    function VerifyLabels(){
+    if(firstname.value != '' && lastname.value != '' && email.value != ''){
+        BNext.allow()
+        next.addEventListener("click", ()=>{
+            localStorage.setItem('name', firstname.value)
+            localStorage.setItem('lastname', lastname.value)
+            localStorage.setItem('email', email.value)
+        })
+    }else{
+        BNext.block()
+    }
+}
+
+    firstname.addEventListener("keyup", function(){
+        this.value = LabelCorretor(this.value)
+        VerifyLabels()
+    })
+    lastname.addEventListener("keyup", function(){
+        this.value = LabelCorretor(this.value)
+        VerifyLabels()
+    })
+    email.addEventListener("keyup", function(){
+        this.value = LabelCorretor(this.value)
+        this.value = this.value.replaceAll(this.value,this.value.toLowerCase())
+        VerifyLabels()
+    })
+
+</script>
