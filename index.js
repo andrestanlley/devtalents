@@ -20,8 +20,6 @@ app.use('/signup', signup)
 app.use('/', profile)
 
 
-app.listen(5000, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log(`Server rodando na porta ${process.env.PORT}`)
-    Users.sync({force: true})
-    console.log('Usuarios apagados.')
 })
