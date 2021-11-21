@@ -20,105 +20,25 @@
             <div class="subclass">
                 <h2>Qual área você mais se identifica?</h2>
                 <div class="areas">
-                    <input type="radio" id="FE" name="Front-end" value="Front-end"
+                    <input type="radio" id="FE" name="Front-end" value="frontend"
                             checked>
                     <label for="FE">Front-end</label>
 
-                    <input type="radio" id="BE" name="Back-end" value="Back-end">
+                    <input type="radio" id="BE" name="Back-end" value="backend">
                     <label for="BE">Back-end</label>
         
-                    <input type="radio" id="FS" name="Full Stack" value="Full Stack">
+                    <input type="radio" id="FS" name="Full Stack" value="fullStack">
                     <label for="FS">Full Stack</label>
 
-                    <input type="radio" id="SC" name="Segurança" value="Segurança">
+                    <input type="radio" id="SC" name="Segurança" value="segurança">
                     <label for="SC">Segurança</label>
 
-                    <input type="radio" id="IF" name="Arquitetura" value="Infraestrutura">
-                    <label for="AQ">Infraestrutura</label>
-            </div>
-            <div class="FE" id="hidden">
-
-                <p>Choose your monster's features:</p>
-
-                <div>
-                <input type="checkbox" id="scales" name="scales"
-                        checked>
-                <label for="scales">Scales</label>
-                </div>
-
-                <div>
-                <input type="checkbox" id="horns" name="horns">
-                <label for="horns">Horns</label>
-                </div>
-
+                    <input type="radio" id="IF" name="Arquitetura" value="infraestrutura">
+                    <label for="IF">Infraestrutura</label>
             </div>
 
-            <div class="BE" id="hidden">
-
-                <p>Choose your monster's features:</p>
-
-                <div>
-                <input type="checkbox" id="scales" name="scales"
-                        checked>
-                <label for="scales">Scales</label>
-                </div>
-
-                <div>
-                <input type="checkbox" id="horns" name="horns">
-                <label for="horns">Horns</label>
-                </div>
-
-            </div>
-
-            <div class="FS" id="hidden">
-
-                <p>Choose your monster's features:</p>
-
-                <div>
-                <input type="checkbox" id="scales" name="scales"
-                        checked>
-                <label for="scales">Scales</label>
-                </div>
-
-                <div>
-                <input type="checkbox" id="horns" name="horns">
-                <label for="horns">Horns</label>
-                </div>
-
-            </div>
-
-            <div class="SC" id="hidden">
-
-                <p>Choose your monster's features:</p>
-
-                <div>
-                <input type="checkbox" id="scales" name="scales"
-                        checked>
-                <label for="scales">Scales</label>
-                </div>
-
-                <div>
-                <input type="checkbox" id="horns" name="horns">
-                <label for="horns">Horns</label>
-                </div>
-
-            </div>
-
-            <div class="iF" id="hidden">
-
-                <p>Choose your monster's features:</p>
-
-                <div>
-                <input type="checkbox" id="scales" name="scales"
-                        checked>
-                <label for="scales">Scales</label>
-                </div>
-
-                <div>
-                <input type="checkbox" id="horns" name="horns">
-                <label for="horns">Horns</label>
-                </div>
-
+            <div class="myStacks">
+                
             </div>
 
             </div>
@@ -130,16 +50,35 @@
 </body>
 <script>
 
-let frontend = document.getElementById('FE')
+Stacks = {}
 
-let Stacks = () => {
-    console.log(this.id)
+function SelectStacks(){
+    if(this.classList.contains("MARKED")){
+        this.classList.remove("MARKED")
+        this.checked = false
+        delete Stacks[`${this.value}`]
+        mystacks.innerHTML -= loadAreas.frontend()
+    }else{
+        this.classList.add("MARKED")
+        Stacks[`${this.value}`] = {}
+        mystacks.innerHTML += loadAreas.frontend()
+    }
+    console.log(Stacks)
 }
 
-function Stacks2(){
-    this.checked=true?this.checked=false:this.checked=true
+const loadAreas = {
+    frontend: function(){
+        return '<%- include(`./parts/frontend`) %>'
+    }
 }
 
-    frontend.addEventListener("click", Stacks2)
+
+
+let frontend = document.getElementById('FE').addEventListener("click", SelectStacks)
+let backend = document.getElementById('BE').addEventListener("click", SelectStacks)
+let fullstack = document.getElementById('FS').addEventListener("click", SelectStacks)
+let security = document.getElementById('SC').addEventListener("click", SelectStacks)
+let infra = document.getElementById('IF').addEventListener("click", SelectStacks)
+let mystacks = document.querySelector('.myStacks')
 </script>
 </html>
