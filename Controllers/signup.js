@@ -1,7 +1,6 @@
 const Users = require('../database/users')
 const { Op } = require("sequelize");
 
-error = ''
 
 module.exports={
     async check(req,res){
@@ -12,7 +11,7 @@ module.exports={
         })
 
         if(VerifyExist){
-           return res.render('index', {step: 'SignupFirstStep', error: '• usuário já cadastrado.'})
+           return res.render('index', {step: 'SignupFirstStep'})
         }
         return res.render('index', {step:'SignupSecondStep'})
     },
