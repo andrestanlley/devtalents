@@ -11,12 +11,12 @@ module.exports={
         })
 
         if(VerifyExist){
-           return res.render('index', {step: 'SignupFirstStep'})
+           return res.render('index', {step: 'firstStep'})
         }
-        return res.render('index', {step:'SignupSecondStep'})
+        return res.render('index', {step: 'secondStep'})
     },
     presentation(req,res){
-        res.render('presentation', {step: 'SignupThirdStep'})
+        res.render('presentation', {step: 'thirdStep'})
     },
     async register(req,res){
         try {
