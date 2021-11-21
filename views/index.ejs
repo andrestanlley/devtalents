@@ -14,12 +14,10 @@
     <main>
         <div id="welcome">
             <p><img src="/images/global/logo.png" alt="Logo DevTalents" id="logo"><br>mostre suas habilidades em 5 minutos.</p>
-            <footer>
-                <a href="#">Sobre nós</a> • <a href="#">Politica de privacidade</a>
-            </footer>
+            <%- include('./parts/footer')%>
         </div>
         <div id="signup">
-            <%- include(`./parts/${part}`) %>
+            <%- include(`./parts/${step}`) %>
         </div>
     </main>
 </body>

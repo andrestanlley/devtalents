@@ -14,7 +14,7 @@
     </header>
     <main>
         <div id="signup">
-            <%- include(`./parts/${part}`) %>
+            <%- include(`./parts/${step}`) %>
         </div>
         <div id="welcome">
             <div class="subclass">
@@ -42,9 +42,7 @@
             </div>
 
             </div>
-            <footer>
-                <a href="#">Sobre nós</a> • <a href="#">Politica de privacidade</a>
-            </footer>
+            <%- include('./parts/footer')%>
         </div>
     </main>
 </body>

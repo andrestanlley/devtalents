@@ -1,8 +1,6 @@
 const Users = require('../database/users')
 const { Op } = require("sequelize");
 
-
-
 error = ''
 
 module.exports={
@@ -14,12 +12,12 @@ module.exports={
         })
 
         if(VerifyExist){
-           return res.render('index', {part: 'su1', error: '• usuário já cadastrado.'})
+           return res.render('index', {step: 'SignupFirstStep', error: '• usuário já cadastrado.'})
         }
-        return res.render('index', {part:'su2'})
+        return res.render('index', {step:'SignupSecondStep'})
     },
     presentation(req,res){
-        res.render('presentation', {part: 'su3'})
+        res.render('presentation', {step: 'SignupThirdStep'})
     },
     async register(req,res){
         try {
@@ -41,9 +39,9 @@ module.exports={
                 presentation
             })
                 console.log(`USUÁRIO ${username.toUpperCase()} CADASTRADO.`)
-                return res.status(201).send('Deu certo')
+                return res.status(201).send('Usuario cadastrado.')
         } catch (error) {
-            return res.status(500).send('Lascou')
+            return res.status(500).send('Ocorreu um erro. Revise os dados.')
         }
         
     }
