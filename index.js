@@ -14,7 +14,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req,res)=>{
-    res.render('index', {step: 'firstStep'})
+    res.render('index', {step: 'firstStep', error: ''})
 })
 app.use('/signup', signup)
 app.use('/:username', profile.show)

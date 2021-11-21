@@ -11,12 +11,12 @@ module.exports={
         })
 
         if(VerifyExist){
-           return res.render('index', {step: 'firstStep'})
+           return res.render('index', {step: 'firstStep', error: 'Usuário já cadastrado.'})
         }
-        return res.render('index', {step: 'secondStep'})
+        return res.render('index', {step: 'secondStep', error: ''})
     },
     presentation(req,res){
-        res.render('presentation', {step: 'thirdStep'})
+        res.render('presentation', {step: 'thirdStep', error: ''})
     },
     async register(req,res){
         try {

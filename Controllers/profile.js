@@ -9,7 +9,7 @@ module.exports = {
             res.render('profile', {username: data.username, firstname: data.firstname, lastname: data.lastname, email: data.email, presentation: data.presentation})
             console.log(`PERFIL VISITADO: ${user}`)
         }).catch((error)=>{
-            res.render('index', {step: 'firstStep', error: 'usuário não encontrado.'})
+            res.render('index', {step: 'firstStep', error: 'Usuário não encontrado.'})
         })
 
 
