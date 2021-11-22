@@ -16,7 +16,7 @@
         clearTimeout(TimeRequest)
         username == ''?photo.setAttribute('src', defaultphoto):photo.setAttribute('src', `https://avatars.githubusercontent.com/${username}`
         )}
-    const TimeRequest = setTimeout(ModifyPhoto, 3000)
+    const TimeRequest = setTimeout(ModifyPhoto, 2000)
     user.value != ''?BNext.allow():BNext.block()
     user.value = LabelCorretor(user.value)
     user.value = user.value.replaceAll(user.value, user.value.toLowerCase())

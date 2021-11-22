@@ -7,7 +7,7 @@
 <textarea id="presentation" name="apresentacao">
 </textarea>
 <p id="CaracterLimiter"></p>
-<input value="Próximo" id="next">
+<input type="button" value="Próximo" id="next">
 </form>
 <script src="/signup/script.js"></script>
 <script>
@@ -45,11 +45,12 @@
 
         const response = await axios.post('/signup/register', data)
 
+
         if(response.status == 201){
             ProfileLink.setAttribute('action', `/${localStorage.getItem('user')}`)
             ProfileLink.submit()
         }else{
-            alert('Erro ao realizar cadastro.')
+            alert(response.data)
         }
     })
 

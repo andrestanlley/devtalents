@@ -6,6 +6,7 @@
     color: #636365;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
+    word-break: break-word;
 }
 
 body{
@@ -97,4 +98,23 @@ hr{
 
 #maininfo{
     width: 60%;
+}
+
+#myPresentation{
+    text-align: justify;
+}
+
+@media (max-width: 700px){
+    #container{
+        flex-direction: column;
+        width: 100vw;
+        min-height: 100vh;
+    }
+    #maininfo{
+        width: 100%;
+    }
+    header{
+        padding: 1rem 1.5rem;
+    }
+
 }

@@ -4,7 +4,13 @@ const { Op } = require("sequelize");
 
 module.exports={
     async check(req,res){
-        const username = req.body.user
+        let username = req.body.user
+
+        if(username[0] == '@'){
+            username = username.substr(1)
+        }
+
+        username = username.toLowerCase().replaceAll(' ','').normalize('NFD').replace(/[\u0300-\u036f]/g, "")
 
         VerifyExist = await Users.findOne({
             where: {username}
@@ -28,7 +34,7 @@ module.exports={
                 where:  {[Op.or]: [{username}, {email}]}
             })
             if(usersAlreadyExists){
-                return res.status(401).send('Usuario já cadastrado.')
+                return res.status(226).send('Usuario já cadastrado.')
             }
             const response = await Users.create({
                 username,
