@@ -41,8 +41,22 @@ label{
     margin-left: .3rem;
 }
 
-#hidden{
-    display: none;
+@media (max-width: 700px) {
+    main{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100vw;
+    }
+    #welcome{
+        display: block;
+        background: #d8e0ed;
+        width: 100vw;
+    }
+    #signup{
+        width: 100vw;
+        background: white;
+    }
+    label{
+        font-size: .7rem;
+    }
 }
-
-

@@ -28,7 +28,6 @@ main{
     min-height: 30rem;
     background-color: white;
     border-radius: 6px;
-    background-image: url('./images/global/bgindex.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -51,4 +50,10 @@ p{
 
 footer{
     font-size: .7rem;
+}
+
+@media (max-width: 700px) {
+    #welcome{
+        display: none;
+    }
 }

@@ -32,15 +32,15 @@
         }
     })
 
+
     next.addEventListener("click", async ()=>{
         localStorage.setItem('presentation', presentation.value)
-        console.log('Inicio')
         let data = {
-            username: localStorage.getItem('user'),
-            firstname: localStorage.getItem('name'),
-            lastname: localStorage.getItem('lastname'),
-            email: localStorage.getItem('email'),
-            presentation: localStorage.getItem('presentation')
+        username: localStorage.getItem('user'),
+        firstname: localStorage.getItem('name'),
+        lastname: localStorage.getItem('lastname'),
+        email: localStorage.getItem('email'),
+        presentation: localStorage.getItem('presentation')
         }
 
         const response = await axios.post('/signup/register', data)

@@ -76,3 +76,10 @@ textarea{
     color:red;
     padding-bottom: 2rem;
 }
+
+@media (max-width: 700px) {
+    #signup{
+        width: 100vw;
+        height: 100vh;
+    }
+}
