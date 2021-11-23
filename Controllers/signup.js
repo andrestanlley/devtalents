@@ -10,7 +10,7 @@ module.exports={
             username = username.substr(1)
         }
 
-        username = username.toLowerCase().replaceAll(' ','').normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+        username = username.toLowerCase().replaceAll(' ','')
 
         VerifyExist = await Users.findOne({
             where: {username}
