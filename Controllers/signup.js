@@ -10,7 +10,7 @@ module.exports={
             username = username.substr(1)
         }
 
-        username = username.toLowerCase().replaceAll(' ','')
+        //username = username.toLowerCase().replaceAll(' ','')
 
         VerifyExist = await Users.findOne({
             where: {username}
