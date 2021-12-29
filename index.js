@@ -4,7 +4,6 @@ const signup = require('./routes/signup')
 const profile = require('./Controllers/profile')
 require('dotenv').config()
 const app = express()
-const Users = require('./database/users')
 
 
 app.use(express.static(path.join(__dirname,"public")))

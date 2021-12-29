@@ -41,6 +41,18 @@ label{
     margin-left: .3rem;
 }
 
+#next{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #131a2d;
+    width: 50%;
+    padding: 0px;
+    pointer-events: none;
+}
+
 @media (max-width: 700px) {
     main{
         display: flex;

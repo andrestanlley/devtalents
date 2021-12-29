@@ -7,6 +7,10 @@ const Users = connection.define('users',{
         AllowNull: false,
         unique: true
     },
+    age: {
+        type: connection.Sequelize.INTEGER,
+        AllowNull: false
+    },
     firstname: {
         type: connection.Sequelize.STRING(30),
         AllowNull: false,
@@ -14,6 +18,10 @@ const Users = connection.define('users',{
     lastname: {
         type: connection.Sequelize.STRING(30),
         AllowNull: false,
+    },
+    adress: {
+        type: connection.Sequelize.STRING(150),
+        AllowNull: false
     },
     email: {
         type: connection.Sequelize.STRING(50),

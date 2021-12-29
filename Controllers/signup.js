@@ -10,7 +10,7 @@ module.exports={
             username = username.substr(1)
         }
 
-        //username = username.toLowerCase().replaceAll(' ','')
+        username = username.toLowerCase()
 
         VerifyExist = await Users.findOne({
             where: {username}
@@ -26,20 +26,22 @@ module.exports={
     },
     async register(req,res){
         try {
-            const {username, firstname, lastname, email, presentation}=req.body
-            if(!username || !firstname || !lastname || !email || !presentation){
+            const {username, age, firstname, lastname, adress, email, presentation} = req.body
+            if(!username || !age || !firstname || !lastname || !adress || !email || !presentation){
                 return res.status(400).send('Preencha todos os campos.')
             }
             const usersAlreadyExists = await Users.findOne({
                 where:  {[Op.or]: [{username}, {email}]}
             })
             if(usersAlreadyExists){
-                return res.status(226).send('Usuario já cadastrado.')
+                return res.status(401).send('Usuario já cadastrado.')
             }
             const response = await Users.create({
                 username,
+                age,
                 firstname,
                 lastname,
+                adress,
                 email,
                 presentation
             })

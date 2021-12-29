@@ -19,28 +19,13 @@
         </div>
         <div id="welcome">
             <div class="subclass">
-                <h2>Qual área você mais se identifica?</h2>
+                <h2>Quais tecnologias você domina?</h2>
                 <div class="areas">
-                    <input type="radio" id="FE" name="Front-end" value="frontend"
-                            checked>
-                    <label for="FE">Front-end</label>
-
-                    <input type="radio" id="BE" name="Back-end" value="backend">
-                    <label for="BE">Back-end</label>
-        
-                    <input type="radio" id="FS" name="Full Stack" value="fullStack">
-                    <label for="FS">Full Stack</label>
-
-                    <input type="radio" id="SC" name="Segurança" value="segurança">
-                    <label for="SC">Segurança</label>
-
-                    <input type="radio" id="IF" name="Arquitetura" value="infraestrutura">
-                    <label for="IF">Infraestrutura</label>
+                    <input type="text" placeholder="Expresse suas skills" id="skills">
+                    <input type="button" id="addSkills" value="adicionar">
             </div>
 
-            <div class="myStacks">
-                
-            </div>
+            <div class="myStacks"></div>
 
             </div>
             <%- include('./parts/footer')%>
@@ -49,35 +34,32 @@
 </body>
 <script>
 
-Stacks = {}
+let Stacks = []
+let skills = document.getElementById('skills')
+let addSkills = document.getElementById('addSkills')
+let myStacks = document.querySelector('.myStacks')
 
-function SelectStacks(){
-    if(this.classList.contains("MARKED")){
-        this.classList.remove("MARKED")
-        this.checked = false
-        delete Stacks[`${this.value}`]
-        mystacks.innerHTML -= loadAreas.frontend()
-    }else{
-        this.classList.add("MARKED")
-        Stacks[`${this.value}`] = {}
-        mystacks.innerHTML += loadAreas.frontend()
-    }
-    console.log(Stacks)
+const modifyPage = ()=>{
+    Stacks.push(skills.value)
+        skills.value = ''
+        myStacks.innerHTML = ''
+        for(x in Stacks){
+            myStacks.innerHTML += `<p id="stackSelect">${Stacks[x]}</p>`
+        }
 }
 
-const loadAreas = {
-    frontend: function(){
-        return '<%- include(`./parts/frontend`) %>'
+addSkills.addEventListener("click", ()=>{
+    modifyPage()
+})
+
+skills.addEventListener("keypress", function(e){
+    if(e.key === 'Enter'){
+        modifyPage()
     }
-}
+})
 
 
 
-let frontend = document.getElementById('FE').addEventListener("click", SelectStacks)
-let backend = document.getElementById('BE').addEventListener("click", SelectStacks)
-let fullstack = document.getElementById('FS').addEventListener("click", SelectStacks)
-let security = document.getElementById('SC').addEventListener("click", SelectStacks)
-let infra = document.getElementById('IF').addEventListener("click", SelectStacks)
-let mystacks = document.querySelector('.myStacks')
+
 </script>
 </html>

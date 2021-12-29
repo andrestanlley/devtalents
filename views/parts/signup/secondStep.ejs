@@ -2,9 +2,10 @@
 <img src="#" id="photo">
 <p>Qual o seu nome?</p>
 <form action="/signup/finish" method="POST">
-<input type="text" placeholder="Seu nome" name="nome" id="name">
-<input type="text" placeholder="seu sobrenome" name="sobrenome" id="lastname">
-<input type="text" placeholder="seu email" name="email" id="email"><br>
+<input type="text" placeholder="Nome" name="name" id="name">
+<input type="text" placeholder="Sobrenome" name="sobrenome" id="lastname">
+<input type="text" placeholder="Cidade e Estado" name="adress" id="adress">
+<input type="text" placeholder="Email" name="email" id="email"><br>
 <input type="submit" value="Próximo" id="next">
 </form>
 <script src="/signup/script.js"></script>
@@ -14,11 +15,12 @@
 }
 
     function VerifyLabels(){
-    if(firstname.value != '' && lastname.value != '' && email.value != ''){
+    if(firstname.value != '' && lastname.value != '' && adress.value != '' && email.value != ''){
         BNext.allow()
         next.addEventListener("click", ()=>{
             localStorage.setItem('name', firstname.value)
             localStorage.setItem('lastname', lastname.value)
+            localStorage.setItem('adress', adress.value)
             localStorage.setItem('email', email.value)
         })
     }else{
@@ -27,6 +29,7 @@
 }
 
     firstname.addEventListener("keyup", function(){
+        console.log(firstname.value)
         this.value = LabelCorretor(this.value)
         VerifyLabels()
     })
@@ -34,10 +37,9 @@
         this.value = LabelCorretor(this.value)
         VerifyLabels()
     })
-    email.addEventListener("keyup", function(){
-        this.value = LabelCorretor(this.value)
-        this.value = this.value.replaceAll(this.value,this.value.toLowerCase())
+    email.addEventListener("keyup", ()=>{
         VerifyLabels()
     })
+    
 
 </script>

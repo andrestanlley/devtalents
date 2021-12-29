@@ -37,14 +37,15 @@
         localStorage.setItem('presentation', presentation.value)
         let data = {
         username: localStorage.getItem('user'),
+        age: localStorage.getItem('age'),
         firstname: localStorage.getItem('name'),
         lastname: localStorage.getItem('lastname'),
+        adress: localStorage.getItem('adress'),
         email: localStorage.getItem('email'),
         presentation: localStorage.getItem('presentation')
         }
 
         const response = await axios.post('/signup/register', data)
-
 
         if(response.status == 201){
             ProfileLink.setAttribute('action', `/${localStorage.getItem('user')}`)
