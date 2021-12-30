@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevTalents - <%=firstname%></title>
     <link rel="stylesheet" type="text/css" href="profile.css">
+    <style>
+        .stackSelect{
+        display: inline-block;
+        color: white;
+        border-radius: 6px;
+        background: grey;
+        width: max-content;
+        padding: 3px;
+        margin: 8px;
+        cursor: default;
+        }
+    </style>
 </head>
 <body>
     <div id="container">
@@ -18,32 +30,38 @@
                     <h5>Junior Fullstack Developer</h5>
                 </div>
             </div>
-            <div id="interline"></div>
-            <div id="contactinfo">
-                <h5><img src="images/global/mail.png" alt="e-mail"><%=email%></h5>
-                <h5><img src="images/global/local.png" alt="residencia"><%=adress%></h5>
-                <h5><a href="">Github </a> • <a href="#"> LinkedIn</a></h5>
-            </div>
         </header>
        <div id="maininfo">
         <div class="cv-parts">
             <h2>Apresentação</h2>
             <p id="myPresentation"><%=presentation%></p>
-            <hr>
         </div>
+        <div id="interline"></div>
         <div class="cv-parts">
-            <h2>Expêriencias</h2>
-            <h3>Universidade do Estado do Rio Grande do Norte • <mark class="light">Cursando</mark></h3>
-            <p>Contabilidade</p>
-            <br>
-            <h3>Empresa 1 • <mark class="light">Atualmente</mark></h3>
-            <p>Cargo de Pleno</p>
-
-            <h3>Empresa 2 • <mark class="light">2 anos</mark></h3>
-            <p>Cargo de Junior</p>
-            <hr>
+            <h2>Stacks</h2>
+            <div class="myStacks">
+                <%=Stacks%>
+            </div>
+            <div id="interline"></div>
+            <div id="contactinfo">
+                <h5><img src="images/global/mail.png" alt="e-mail"><%=email%></h5>
+                <h5><img src="images/global/local.png" alt="residencia"><%=adress%></h5>
+                <h5><img src="images/global/github.png" alt="residencia"><a href="https://github.com/<%=user%>" target="_blank">Github</a></h5>
+                <h5><img src="images/global/linkedin.png" alt="residencia"><a href="https://linkedin.com/in/<%=user%>" target="_blank">LinkedIn</a></h5>
+            </div>
+            <div id="interline"></div>
         </div>
        </div>
     </div>
 </body>
+<script>
+    let myStacks = document.querySelector('.myStacks')
+    let Stacks = JSON.parse(document.querySelector('.myStacks').innerHTML)
+    onload = ()=>{
+        myStacks.innerHTML = ''
+        for(x in Stacks){
+            myStacks.innerHTML += `<p class="stackSelect">${Stacks[x]}</p>`
+        }
+    }
+</script>
 </html>

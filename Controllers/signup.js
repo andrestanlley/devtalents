@@ -26,8 +26,9 @@ module.exports={
     },
     async register(req,res){
         try {
-            const {username, age, firstname, lastname, adress, email, presentation} = req.body
-            if(!username || !age || !firstname || !lastname || !adress || !email || !presentation){
+            const {username, age, firstname, lastname, adress, email, presentation, Stacks} = req.body
+            console.log(Stacks)
+            if(!username || !age || !firstname || !lastname || !adress || !email || !presentation || !Stacks){
                 return res.status(400).send('Preencha todos os campos.')
             }
             const usersAlreadyExists = await Users.findOne({
@@ -43,7 +44,8 @@ module.exports={
                 lastname,
                 adress,
                 email,
-                presentation
+                presentation,
+                Stacks
             })
                 console.log(`USUÁRIO ${username.toUpperCase()} CADASTRADO.`)
                 return res.status(201).send('Usuario cadastrado.')

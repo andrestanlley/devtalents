@@ -29,11 +29,6 @@ main{
     flex-direction: column;
 }
 
-input[type=radio],input[type=checkbox]{
-    height: 1rem;
-    width: auto;
-    margin-bottom: auto;
-}
 
 label{
     font-size: 1rem;
@@ -41,16 +36,32 @@ label{
     margin-left: .3rem;
 }
 
-#next{
+.stackSelect{
+    display: inline-block;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #131a2d;
-    width: 50%;
-    padding: 0px;
-    pointer-events: none;
+    border-radius: 6px;
+    background: grey;
+    width: max-content;
+    padding: 3px;
+    margin: 8px;
+    cursor: pointer;
+}
+
+input{
+    height: 3rem;
+}
+
+h2{
+    margin: .5rem;
+}
+
+input#addSkills{
+    color: white;
+    width: max-content;
+    margin-left: .5rem;
+    background: rgb(19, 26, 45);
+    height: 3rem;
+    cursor: pointer;
 }
 
 @media (max-width: 700px) {

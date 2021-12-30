@@ -42,7 +42,8 @@
         lastname: localStorage.getItem('lastname'),
         adress: localStorage.getItem('adress'),
         email: localStorage.getItem('email'),
-        presentation: localStorage.getItem('presentation')
+        presentation: localStorage.getItem('presentation'),
+        Stacks: JSON.stringify(Stacks)
         }
 
         const response = await axios.post('/signup/register', data)

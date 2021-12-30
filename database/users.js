@@ -31,7 +31,12 @@ const Users = connection.define('users',{
     presentation: {
         type: connection.Sequelize.STRING(300),
         AllowNull: false,
+    },
+    Stacks: {
+        type: connection.Sequelize.STRING(500),
+        AllowNull: false
     }
 })
 
 module.exports = Users
+Users.sync({force: true})

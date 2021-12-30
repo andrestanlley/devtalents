@@ -44,15 +44,24 @@ const modifyPage = ()=>{
         skills.value = ''
         myStacks.innerHTML = ''
         for(x in Stacks){
-            myStacks.innerHTML += `<p id="stackSelect">${Stacks[x]}</p>`
+            myStacks.innerHTML += `<p class="stackSelect" id="${Stacks[x]}" onclick="removeSkill(${Stacks[x]})">${Stacks[x]}</p>`
         }
 }
+
+const removeSkill = (id)=>{
+    id.style.display = "none"
+    Stacks.splice(Stacks.indexOf(id.innerHTML), 1)
+}
+
 
 addSkills.addEventListener("click", ()=>{
     modifyPage()
 })
 
 skills.addEventListener("keypress", function(e){
+    if(skills.value.length <= 1){
+        skills.value = skills.value.toUpperCase()
+    }
     if(e.key === 'Enter'){
         modifyPage()
     }
