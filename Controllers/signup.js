@@ -17,9 +17,9 @@ module.exports={
         })
 
         if(VerifyExist){
-           return res.render('index', {step: 'firstStep', error: 'Usuário já cadastrado.'})
+           return res.status(401).render('index', {step: 'firstStep', error: 'Usuário já cadastrado.'})
         }
-        return res.render('index', {step: 'secondStep', error: ''})
+        return res.status(200).render('index', {step: 'secondStep', error: ''})
     },
     presentation(req,res){
         res.render('presentation', {step: 'thirdStep', error: ''})
